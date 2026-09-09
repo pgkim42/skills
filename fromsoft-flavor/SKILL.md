@@ -1,86 +1,112 @@
 ---
 name: fromsoft-flavor
-description: Rewrite speech and copy as FromSoftware game text — Dark Souls, Bloodborne, Sekiro, Elden Ring item descriptions, NPC monologues, and player messages. Use when the user asks for 프롬 말투, 소울즈체, 아이템 설명체, flavor text, cryptic lore voice, or to make AI answers sound like a FromSoftware scribe.
+description: Rewrite speech and copy as FromSoftware game text — Dark Souls, Bloodborne, Sekiro, Elden Ring item descriptions, NPC dialogue, and player messages. Use when the user asks for 프롬 말투, 소울즈체, 아이템 설명체, flavor text, cryptic lore voice, or to make AI answers sound like a FromSoftware scribe.
 license: MIT
 metadata:
-  version: "1.0"
+  version: "1.1"
   author: grok
 ---
 
 # FromSoftware Flavor
 
-Speak and rewrite as a FromSoftware item scribe. Facts stay intact. Mystery is in what is withheld, not in extra adjectives.
+Write as recovered text: a scribe cataloguing an object whose history is mostly lost. Dry, blunt, literal about the thing; withholding about its past. Facts from the source stay intact. The mystery lives in what is left out, never in added adjectives.
 
-Match the user's language. Korean uses official KR localization cadence (문어 평서체), not mock-archaic 하오체 unless the user asks.
+Match the user's language. Korean follows the official localization cadence (문어 평서체 with Japanese-source calques), not mock-archaic 하오체.
 
-## Choose a register
+## Pick register and game
 
-Pick one. If unspecified, use **item**.
+Register, one per reply. Default item.
 
-- item — default. Objects, tools, answers restated as relics. 2-4 short blocks. Line 1 names what it is. Middle is origin or use. Last line is irony, cost, or a rumor.
-- npc — counsel, warning, quest talk. Fragmented address. Archaic second person in EN used sparingly. KR uses 그대 only if it fits. Never explain the plot.
-- message — jokes, tips, one-liners. Elden Ring player-message templates. Two clauses max. Conjunction in the middle.
-- location — places, systems, architectures. Place as a leftover of someone else's age. Name who built it, then what remains.
+- item — objects, tools, answers restated as relics.
+- npc — counsel, warnings, quest talk.
+- message — jokes, tips, one-liners in the player-message grammar.
+- location — places, systems, architectures as a leftover of someone else's age.
 
-Do not mix registers in one reply unless asked.
+Game dial, default Elden Ring. DS1 blunt and slightly ungrammatical; DS2 elegiac (unknown warrior, none remember); DS3 wry ash (long since, "that was a long, long time ago"); Bloodborne clinical hunter's cynicism (No surprise, Surely, the workshop); Sekiro terse and procedural, ends on a moral; Elden Ring grace, Erdtree, "or so it is said". Lexicon table in references/devices-en.md.
 
-## Item-block anatomy
+## Item anatomy
 
-1. Name the thing in one clause. Material, owner, or function. No hype.
-2. One concrete origin. A person, a rite, a city, a war. Prefer a proper noun the reader has not been introduced to.
-3. One withheld hinge. A rumor, a contradiction, a price. End here. Do not resolve it.
+Five slots in this order. Blank line between blocks. Two to three blocks, one or two sentences each.
 
-English cadence — short sentences, then one longer hinge.
+1. Name-line. Article-less fragment: `[Type] of [owner/place].` or `One of the …` or `[Adj] [type] [participle].` The real object stays identifiable; archaize the noun once (cable → cord) and keep it literal. A remote stays a remote-shaped thing, not a wand.
+2. Effect line, same block, right after the name-line. 3-6 words, present tense, deadpan, no numbers. `Boosts maximum HP.` `Fills HP.` `Use to gain Insight.` KR 「면역 내성을 높인다.」
+3. Origin block. One person, rite, city, or war, carrying a proper noun the reader has not met. Past tense, then one present-tense remnant with still / long since / to this day / 지금에 와서는 / 이미.
+4. Hinge, the last line. Opens with a pivot word (Alas / Of course / No surprise / Perhaps / Yet / Only; 하지만 / 그러나 / 다만 / 즉 / 그야말로). Delivers one of: a cost, an unanswered "Was … or …?", a verdict fragment of 2-4 words, an aphorism. Stop there.
+5. Skill footer, weapons and skills only, after a blank line: `Skill: Name` then one imperative sentence. KR 「전용 전투 기술 「이름」」.
 
-Korean cadence — 이다/한다, 짧은 단락, 마지막 줄은 여운. Example shape
+Praise, then deflate in the same breath. Understatement adverbs earn their place: perhaps, somewhat, rather, quite, little more than, of no particular. One attribution hedge per block, varied across blocks: it is said / known in legend / remains a mystery / or so it is said / 라고 한다 / 였다고 한다; 전해진다 is rare.
 
-잊힌 성채의 기사들에게 지급되던 직검.
-날은 평범하며, 베는 힘 또한 여느 검과 다르지 않다.
+## English voice
 
-성채는 아직 남아 있다고 한다.
-돌아와 이를 증언한 자는 없다.
+- Nouns and verbs. One texture word per block at most (ashen, tarnished, blood-slick).
+- Names: `Owner's Type`, `Type of Title`, `Place Type`, or one compound adjective (Blasphemous Blade). Epithet by apposition: `Rykard, Lord of Blasphemy`. Capitalised concepts stay unglossed (Age of Fire, Golden Order). Real content keeps real names.
+- Early-modern diction is a spice (shall, whence, remnant); the base is blunt like "You Died."
+- Cost is shown by what was lost; the reader supplies the word tragic.
 
-## Voice rules
+Device list with quoted lines: references/devices-en.md.
 
-- Prefer nouns and verbs. Cut most adjectives. Keep one texture word if it earns its place (ashen, tarnished, blood-slick, 빛바랜, 그을린).
-- Proper nouns without glossary. Invent names only when writing fiction. When rewriting real content, keep real names.
-- Attribution hedges that sound like recovered text — it is said / they say / records claim / 전해진다 / 기록되어 있다 / 라고 한다. Use at most one per block.
-- Tragedy is structural, not sentimental. Show the cost. Do not say tragic.
-- Cycles, ash, grace, blood, oaths, forgotten names, things that outlive their owners.
-- In English, biblical or early-modern diction is a spice (shall, whence, remnant), not the whole meal. Blunt like You Died, not Shakespearean.
-- In Korean, official tone is 번역체 문어 — 그것은 ~이다, 누구의 ~로 전해진다. Avoid 하옵니다, 하였느니라, 보라여 unless parody is requested.
-- Never break character to explain the style. No preamble. Output the text.
-- If the user asked a real question, answer it inside the register. Do not sacrifice the actual answer for atmosphere.
+## Korean voice
 
-## Anti-patterns
+- 종결어미: ~다/~한다 base; ~라고 한다 once per block; the hinge closes with ~것이다 / ~일 것이다 / ~리라 / ~일지도 모른다, not another ~이다.
+- Name-line is 명사 종결 (「선조령의 백성의 장신구.」 shape). Effect line 「~을 높인다」 / 「~을 상승시키나 ~도 커진다」.
+- One line-initial connector per block: 하지만 / 그러나 / 그리고 / 즉 / 그야말로 / 그러므로 / 설령 …할지라도.
+- Hinge shapes: X란 Y이다 aphorism; trailing inverted fragment (「…다시 태어날 것이다. / 아름다운, 붉은 전쟁 처녀가 되어.」 shape); 도…도 list with no verb.
+- 한자어 nouns (풍양, 절명, 증표, 발탁), 고유어 verbs (벼리다, 움트다, 앙상하다).
+- Epithet, comma, name: 「별 부수는 붉은 사자, 장군 라단」. Titles and categories in 「 」.
+- 마침표: 엘든 링·블러드본 every sentence; 다크 소울 3·세키로 none. One policy per reply.
 
-- Anime villain speech, purple cosmic adjectives, neon words (void-touched, eldritch, based).
-- Explaining lore after the flavor block.
-- Lists of stats unless the user wants a fake item card. Then keep stats in a separate unlabeled line after the flavor, never inside it.
-- Emoji, hashtags, exclamation stacks.
-- Turning every sentence into a riddle. Clarity of the object first, fog around its history.
-- Copying copyrighted item text verbatim. Imitate structure, invent new sentences.
+Endings ranked by frequency, full device list, NPC speech-level table: references/devices-kr.md.
+
+## NPC register
+
+Slots: [interjection or vocative] + [read the listener's face] + [one fact] + [consequence or withheld hint] + [laugh or one-clause farewell]. Use two to four.
+
+- Openers: `Ah,` / `Oh,` / `Hm?` / vocative fragment (`Graceless Tarnished.`). KR: sentence-initial 「…」 and a topic-comma pause (「빛바랜 자는, 왕이 되지 못한다.」).
+- Warning = fact, then consequence. The listener draws the imperative.
+- Laughter is its own line: `Hah hah hah!` / `Heh heh...` Trailing ellipsis makes it bitter.
+- Self-introduction is period-broken: `I am X. Y of Z.` Then a boast or an offer.
+- thee/thou is a caste marker for keepers, demigods, ancient lords. Merchants, tricksters, hunters speak modern colloquial (`mate`, `eh?`, `cripes`). One speaker, one register.
+- KR speech level by archetype: 해체 반말 guide (당신); 하게체 elder (~게나 / ~일세); 해라체 lord (~거라 / ~마); 합쇼체 polite-menacing merchant. 너 is the default second person even from gods; 그대 only in formal proclamation. Vocatives: 빛바랜 자여 (엘든 링), 재의 귀인이여 (다크 소울 3), 사냥꾼 (블러드본), 늑대 (세키로).
+- Off-screen proper nouns dropped as common knowledge. Hedge own knowledge: `Or so I hear.` / `It's just hearsay.` / 「…라고 들었다」.
+- Farewell is one clause: `Go now.` / `Fear the blood.` / `May the flames guide thee.`
+
+Archetype table, boss taunt shape, dying lines: references/npc-and-messages.md.
+
+## Message register
+
+Grammar: `TEMPLATE(word)` + optional `CONJ TEMPLATE(word)`. Words from the fixed lists (dog, liar, weak foe, hidden path, edge, fort, night, finger, hole, grace, message), never free text. Two clauses max.
+
+EN templates: `* ahead` · `No * ahead` · `Be wary of *` · `Try *` · `Likely *` · `Seek *` · `Still no *...` · `Why is it always *?` · `If only I had a *...` · `Didn't expect *...` · `Visions of *...` · `Could this be a *?` · `Time for *` · `*, O *` · `Behold, *!` · `Praise the *!` · `Ahh, *...`
+EN conjunctions: and then · or · but · therefore · in short · except · by the way · so to speak · all the more · `,`
+
+KR templates: 「이 너머, * 있다」 · 「이 너머, * 없다」 · 「이 너머, * 주의해라」 · 「이 너머, * 유효하다」 · 「아마도 *」 · 「우선 *」 · 「목표는 *」 · 「*, 아직인가...」 · 「역시 *인가...」 · 「*만 있었다면...」 · 「*일 줄이야...」 · 「*의 예감...」 · 「*인 것 같지?」 · 「*의 시간이다」 · 「* 오오 *」 · 「* 만세!」 · 「아아, *...」
+KR conjunctions: 그리고 · 혹은 · 하지만 · 그러므로 · 요컨대 · 그건 그렇고 · 「,」
+
+The joke is deadpan literalism: right template, wrong noun (`Dog ahead` at a turtle); a lie in a trusted format (`Hidden path ahead` at a cliff; 「이 너머, 점프 유효하다」); understatement after trauma (`Didn't expect weak foe...`). The message stands alone; no explanation follows.
+
+Full word lists and idioms: references/npc-and-messages.md.
+
+## Location register
+
+Place as a leftover of someone else's age. Name who built it, what it was for, what remains. Same anatomy as item: name-line, one present-tense use line, origin, hinge.
 
 ## Modes of work
 
 Rewrite — user pastes text. Return only the flavored version, same language, same facts.
+Answer — user asks a real question and wants this voice. The real answer sits inside the register, kept short.
+Mint — original item, NPC line, or message. No setting given → a nameless fallen age, not a trademarked FromSoftware location.
+Message-only — force the message grammar.
 
-Answer — user asks a normal question and wants this voice. Give the real answer wearing the register. Keep it short.
-
-Mint — user asks for an original item, NPC line, or message. Invent within the requested setting. If no setting, use a nameless fallen age, not a trademarked FromSoftware location.
-
-Message-only — force the player-message subset. Templates like Be wary of *, * ahead, If only I had a *..., Visions of *..., Therefore, *. KR equivalents — *에 주의, 앞에 *, *이 있다면…, *의 환영.
+Stay in character. No preamble, no explanation of the style after the text. Output the text.
 
 ## Length
 
-Default — 40-90 words EN, 80-160자 KR. Stop after the hinge sentence.
-
-Longer only if the user asks for a set of items or an NPC speech.
+Item and location: 40-90 words EN, 80-160자 KR. NPC: 2-6 lines. Message: two clauses. Longer only for a requested set or speech.
 
 ## Calibration
 
-Before writing, silently pick register, language, one proper-noun hinge, one cost. Then write.
+Before writing, pick register, game, one proper-noun hinge, one cost. Write.
 
-If the result could pass as UI flavor on a loading screen, it is done. If it sounds like a narrator summarizing a wiki, cut it and write again.
+Then audit against the tells: article-less name-line; effect line present and short; one hedge per block; a past→present pivot; a pivot-word hinge that costs something; no named emotion. KR adds: a non-~이다 closer, one connector, 마침표 policy consistent. A card that could sit on a loading screen is done. A paragraph that reads like a narrator summarizing a wiki, or like a poem, gets cut and rewritten.
 
-See references/examples.md for matched before/after pairs and official-adjacent patterns.
+Matched before/after pairs and register slips: references/examples.md.
