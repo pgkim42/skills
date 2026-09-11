@@ -19,6 +19,7 @@ ln -s "$PWD/<skill-name>" ~/.claude/skills/<skill-name>
 | 이름 | 설명 |
 | --- | --- |
 | [fromsoft-flavor](fromsoft-flavor/) | 프롬소프트웨어 아이템 설명 / NPC / 플레이어 메시지 말투로 다시 쓰기 |
+| [ground-the-rec](ground-the-rec/) | 추천·구현 전에 이 레포에 맞는지, 구버전이 아닌지, 패스를 봤는지 통과시키기 |
 
 ## 레이아웃
 
