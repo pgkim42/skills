@@ -23,14 +23,14 @@ Fit is this repo's current convention. The habit this task is here to change is 
 
 Applies when the rec names a library, API, or version.
 
-Done: the rec cites the lockfile/manifest version, or the official current docs. Training recall is not a source.
+Done: for an existing dependency, cite its resolved version (or declared range if unresolved) and version-matched official docs or source for the behavior relied on. For a new dependency or upgrade, cite current official support and compatibility with this repo's runtime. A version declaration alone does not establish API behavior; latest docs may describe a different version. Training recall is not a source.
 
 ## Paths
 
 Applies when the rec has runtime behavior.
 
-Done: the rec names the success path and the failure/empty/auth/idempotency paths that exist here, and any deferred path with a reason. Design coverage, not a test matrix.
+Done: state the expected behavior on the success path and the failure/empty/auth/idempotency paths relevant to this change, grounded in existing code or the task's requirements. Name any deferred path with a reason. Cover paths the change introduces as well as existing ones; do not invent inapplicable paths. Design coverage, not a test matrix.
 
 ## Output
 
-Cite evidence inside the rec or first edit. No gate report. An uncited applicable gate is open.
+Cite paths, symbols, or source links in the recommendation, or in a brief explanation before the first edit when implementing directly. Keep grounding evidence in that explanation rather than adding research-only code comments. No gate report. An uncited applicable gate is open; state the uncertainty and keep dependent recommendations provisional until it is resolved.
