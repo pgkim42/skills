@@ -9,7 +9,7 @@ A rec is **grounded** when every applicable gate has checkable evidence. Ground 
 
 Gates are pass conditions, not agents. The main agent runs them. One scout only when Fit needs a tour of unknown code. Paths stays on the main agent.
 
-Order: **Fit**, then **Stale** if a library/API/version remains, then **Paths** if the rec has runtime behavior. Skip a gate that does not apply; do not announce the skip.
+Order: **Fit**, then **Stale** when applicable, then **Paths** if the rec has runtime behavior. Skip a gate that does not apply; do not announce the skip.
 
 ## Fit
 
@@ -17,11 +17,11 @@ What this repo already does in this layer.
 
 Done: the rec cites a path or symbol it follows, or states there is no precedent in this layer. A name-search miss is not "no precedent" — look at the neighboring feature in the same layer, or the data/auth pattern this would sit on.
 
-Fit is this repo's current convention. The habit this task is here to change is not a precedent.
+Before adopting a precedent, check applicable AGENTS.md instructions and approved policy or design decisions. If existing code conflicts with them, surface the conflict and follow the approved direction. A deprecated pattern or the habit this task is here to change is not a precedent.
 
 ## Stale
 
-Applies when the rec names a library, API, or version.
+Applies when the rec depends on external library/API behavior or version compatibility. Reusing an unchanged repo-owned abstraction can be grounded in its implementation and contract; verify external behavior when the rec relies on it beyond that contract.
 
 Done: for an existing dependency, cite its resolved version (or declared range if unresolved) and version-matched official docs or source for the behavior relied on. For a new dependency or upgrade, cite current official support and compatibility with this repo's runtime. A version declaration alone does not establish API behavior; latest docs may describe a different version. Training recall is not a source.
 
@@ -30,6 +30,8 @@ Done: for an existing dependency, cite its resolved version (or declared range i
 Applies when the rec has runtime behavior.
 
 Done: state the expected behavior on the success path and the failure/empty/auth/idempotency paths relevant to this change, grounded in existing code or the task's requirements. Name any deferred path with a reason. Cover paths the change introduces as well as existing ones; do not invent inapplicable paths. Design coverage, not a test matrix.
+
+For data or schema changes, include existing-data compatibility and fresh initialization, upgrade, and rerun behavior where applicable.
 
 ## Output
 
